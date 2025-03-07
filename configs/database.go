@@ -4,7 +4,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"log"
 	"os"
 	"strconv"
 
@@ -33,10 +32,7 @@ type Option struct {
 
 func Database() *bun.DB {
 
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
+	godotenv.Load()
 
 	db, err := defaultConfig()
 	if err != nil {
